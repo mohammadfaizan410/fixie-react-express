@@ -1,0 +1,28 @@
+.home-container{
+    display: flex;
+    padding: 50px 100px 50px 100px;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+}
+
+.description h1{
+    font: 700;
+    font-size: 50px;
+}
+.description p {
+    width: 80%;
+}
+
+.home-image{
+    display: flex;
+    width: 50%;
+}
+.home-image img {
+    width: 100%;
+    aspect-ratio: 16 / 13;
+}

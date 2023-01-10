@@ -1,0 +1,17 @@
+.login-container{
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 3%;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 1px 5px 5px 5px #d4d4d4;
+}
+
+.login-container h3{
+    padding-bottom: 30px;
+}
+.login-container Button{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+

@@ -1,0 +1,57 @@
+.nav-container{
+    display: flex;
+    font-family: 'Epilogue', sans-serif;
+    width: 90%;
+    height: 80px;
+    margin: 0 auto;
+}
+.nav-left{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+.nav-right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-logo{
+    font-size: 30px;
+    font-weight: 700;
+    padding-right: 50px;
+    color: black;
+}
+.nav-item{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: hsl(0, 0%, 41%);
+    font-weight: 500;
+    cursor: pointer;
+}
+.nav-item:hover{
+    color: hsl(0, 0%, 8%);
+}
+.nav-login{
+    padding: 10px;
+    margin-right: 20px;
+    border: 2px solid hsl(0, 0%, 98%);
+    color: black;
+}
+.nav-login:hover{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.nav-register:hover{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.nav-register{
+    padding: 10px 10px 10px 10px;
+    margin-right: 10px;
+    border: 2px solid hsl(0, 0%, 98%);
+    color: black;
+
+}
