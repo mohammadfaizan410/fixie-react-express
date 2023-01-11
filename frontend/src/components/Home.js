@@ -2,7 +2,6 @@ import React from 'react';
 import "../styles/home.css";
 import Button from './Button';
 
-
 function Home() {
   return (
     <div className='home-container'>

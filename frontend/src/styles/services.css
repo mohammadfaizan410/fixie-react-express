@@ -1,0 +1,52 @@
+.services-page {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.services-container{
+    display: flex;
+    padding: 50px 100px 10px 100px;
+}
+.services-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.services-description h1{
+    font: 700;
+    font-size: 50px;
+}
+.services-description p {
+    width: 80%;
+}
+.services-image{
+    display: flex;
+    width: 50%;
+}
+.services-image img {
+    width: 100%;
+    aspect-ratio: 16 / 13;
+}
+.services {
+    display: inline-block;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex: column;
+    justify-content: center;
+    align-items: center;
+}
+.services-card {
+    margin: 10px;
+    box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.1);
+    transition: all .2s ease-in-out;
+}
+.services-card:hover{
+    transform: scale(1.1);
+}
+.services-card-image {
+    aspect-ratio: 8 / 5;
+}

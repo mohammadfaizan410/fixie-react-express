@@ -12,7 +12,9 @@ function Nav() {
         <Link to="/" style={{ textDecoration : "none" }}>
         <div className='nav-item'>Home</div>
         </Link>
+        <Link to="/services" style={{ textDecoration : "none" }}>
         <div className='nav-item'>Services</div>
+        </Link>
         <div className='nav-item'>Book Now</div>
         <div className='nav-item'>Contact</div>
       </div>
