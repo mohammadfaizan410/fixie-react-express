@@ -51,7 +51,7 @@ function Services() {
                 <Card.Text>
                     Check out all the { service.title.toLowerCase() } services!
                 </Card.Text>
-                        <Button variant="outline-secondary" >{ service.title }</Button>
+                <Button variant="primary">{ service.title }</Button>
             </Card.Body>
         </Card>
         )
