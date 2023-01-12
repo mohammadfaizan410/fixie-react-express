@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Services from './components/Services';
+import Contact from './components/Contact';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export class App extends PureComponent {
@@ -18,6 +19,7 @@ export class App extends PureComponent {
             <Route path='login' element={<Login />}/>
             <Route path='register' element={<Register />}/>
             <Route path='services' element={<div><Nav /><Services /></div>}/>
+            <Route path='contact' element={<div><Nav /><Contact /></div>}/>
         </Routes>
       </div>
     </BrowserRouter>
