@@ -44,14 +44,14 @@ function Services() {
         <div className='flex flex-wrap services'>
             {services.map(function(service){
             return (   
-        <Card className="services-card" style={{ width: '22rem' }}>
+        <Card className="services-card mb-5" style={{ width: '22rem' }}>
             <Card.Img className="services-card-image" variant='top' src={service.img} alt={service.title}/>
             <Card.Body>
                 <Card.Title>{ service.title }</Card.Title>
                 <Card.Text>
                     Check out all the { service.title.toLowerCase() } services!
                 </Card.Text>
-                <Button variant="primary">{ service.title }</Button>
+                        <Button variant="outline-secondary" >{ service.title }</Button>
             </Card.Body>
         </Card>
         )
