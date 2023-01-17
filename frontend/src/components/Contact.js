@@ -64,20 +64,17 @@ function Contact() {
             })}
         </div>
         <div className='contact-container'>
-            <h2>You question is not in the FAQ?</h2>
+            <h2>Your question is not in the FAQ?</h2>
             <h3>Contact us!</h3>
             <div className='contact-us-info-container'>
                 <Form className='contact-us-container' onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Name" name='name' value={contactInfo.name} onChange={(e) => handleChange(e)} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Label>Email</Form.Label>
                         <Form.Control type="text" placeholder="Email" name='email' value={contactInfo.email} onChange={(e) => handleChange(e)} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Label>Subject</Form.Label>
                         <Form.Control type="text" placeholder="Subject" name='subject' value={contactInfo.subject} onChange={(e) => handleChange(e)} />
                     </Form.Group>
                     <Form.Group className="mb-3 message" controlId="formBasicName">
