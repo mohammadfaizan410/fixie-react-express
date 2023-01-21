@@ -2,20 +2,24 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const PORT = 4000;
+const cors = require("cors");
 
 const mongoose = require("mongoose");
 
 const bcrypt = require('bcrypt');
-const { UserFlag } = require("dfx/types");
 
 const saltRounds = 10;
 
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect("mongodb://127.0.0.1:27017/fixie", { useNewUrlParser: true });
+mongoose.connect("mongodb://127.0.0.1:27017/fixie_DB", { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors());
+
+app.use(express.json());
 
 app.use("/public", express.static(__dirname + "/public"));
 
@@ -38,6 +42,11 @@ app.post("/api/login", (req, res) => {
             }
         }
     })
+});
+
+app.post("/api/register", (req, res) => {
+    console.log(req.body.data)
+    res.send(req.body.data)
 })
 
 app.listen(PORT, console.log(`listening on port ${PORT}`));

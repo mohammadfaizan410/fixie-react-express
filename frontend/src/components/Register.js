@@ -2,6 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../styles/register.css"
+import axios from 'axios';
 
 function Register() {
     const [registerData, setRegisterData] = React.useState({
@@ -9,9 +10,16 @@ function Register() {
         confirmPassword : ""
     })
 
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
         e.preventDefault();
-        
+      axios.post("http://localhost:4000/api/register",{
+          data : registerData,
+      }).then(response => {
+          console.log(response.data)
+      }, error => {
+        console.log(error);
+        })
+
         setRegisterData({
             name: "", surname: "", email: "", password: "",
             confirmPassword : ""
