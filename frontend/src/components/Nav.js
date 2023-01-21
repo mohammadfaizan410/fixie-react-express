@@ -15,7 +15,9 @@ function Nav() {
         <Link to="/services" style={{ textDecoration : "none" }}>
         <div className='nav-item'>Services</div>
         </Link>
+        <Link to="/book-now" style={{ textDecoration : "none" }}>
         <div className='nav-item'>Book Now</div>
+        </Link>
         <Link to="/contact" style={{ textDecoration : "none" }}>
         <div className='nav-item'>Contact</div>
         </Link>

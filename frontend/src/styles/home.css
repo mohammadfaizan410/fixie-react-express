@@ -25,4 +25,5 @@
 .home-image img {
     width: 100%;
     aspect-ratio: 16 / 13;
+    border-radius: 20px;
 }

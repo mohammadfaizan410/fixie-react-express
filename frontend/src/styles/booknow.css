@@ -1,0 +1,53 @@
+.booknow-container {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 40px auto;
+}
+.left-filter {
+    max-width: 25%;
+    border-radius: 5%;
+    /* box-shadow: 3px 10px 8px rgba(0, 0, 0, 0.1); */
+}
+.filter-accordion { 
+    width: 225px
+}
+label {
+    margin-left: 3px;
+}
+.workers-container {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.search-bar {
+    margin: 0 auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 98%;
+    border-radius: 10px;
+    color: black;
+    border-color: transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.worker-container {
+    display: flex;
+    margin-left: 15px;
+    margin-bottom: 25px;
+    width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    align-items: center;
+}
+.worker-container img {
+    width: 120px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 20px;
+}
+.worker-info-container {
+    margin-top: 10px;
+    margin-left: 15px;
+}
