@@ -46,7 +46,8 @@ app.post("/api/login", (req, res) => {
 
 app.post("/api/register", (req, res) => {
     console.log(req.body.data)
-    res.send(req.body.data)
+    setTimeout(() => { res.send(req.body.data) }, 3000);
+    
 })
 
 app.listen(PORT, console.log(`listening on port ${PORT}`));
