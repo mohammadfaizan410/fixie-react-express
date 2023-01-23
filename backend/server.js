@@ -3,12 +3,12 @@ const express = require("express");
 const app = express();
 const PORT = 4000;
 const cors = require("cors");
-
+const User = require("./schemas/User");
 const mongoose = require("mongoose");
-
 const bcrypt = require('bcrypt');
-
 const saltRounds = 10;
+
+
 
 
 mongoose.set('strictQuery', false);
@@ -38,16 +38,35 @@ app.post("/api/login", (req, res) => {
         if (result) {
             const passMatch = await bcrypt.compare(password, result.password);
             if (passMatch) {
-                res.send()
+                res.send("success")
             }
         }
     })
 });
 
 app.post("/api/register", (req, res) => {
-    console.log(req.body.data)
-    setTimeout(() => { res.send(req.body.data) }, 3000);
-    
+
+    User.findOne({ email: req.body.data.email }).then(result => {
+        if (!result) {       
+            bcrypt.hash(req.body.data.password, saltRounds, function (err, hash) { 
+                if (!err) {  
+                    const newUser = new User({
+                        name: req.body.data.name,
+                        surname: req.body.data.surname,
+                        email: req.body.data.email,
+                        password: hash
+                    });
+                    newUser.save();
+                    res.send(req.body.data)
+                }
+            }         
+            )
+        }
+        else {
+            res.send("exists");
+        }
+        // }
+    })
 })
 
 app.listen(PORT, console.log(`listening on port ${PORT}`));

@@ -7,28 +7,29 @@ const userSchema = new mongoose.Schema({
     },
     surname: {
         type: String,
-        required : true
+        required: true
     },
     email: {
         type: String,
-        required : true,
+        required: true,
     },
-    usernme: {
-        type: String,
-        requried : true
-    },
+    // usernme: {
+    //     type: String,
+    //     requried : true
+    // },
     password: {
         type: String,
-        required : true
-    },
-    type: {
-        type: String,
         required: true
     },
-    birth_data: {
-        type: String,
-        required: true
-    }
+    worker: {
+        type: Boolean,
+        default: false
+    },
+    // birth_data: {
+    //     type: String,
+    //     required: true
+    // },
+
 })
 
-module.exports = User = new mongoose.Collection(user,userSchema);
+module.exports = User = new mongoose.model("user",userSchema);

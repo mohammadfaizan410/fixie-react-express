@@ -3,9 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../styles/register.css"
 import axios from 'axios';
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 function Register() {
-    
+  
+  const navigate = useNavigate();
+
+
   const [registerData, setRegisterData] = React.useState({
     name: "", surname: "", email: "", password: "",
     confirmPassword: ""
@@ -46,6 +51,7 @@ function Register() {
         name: "", surname: "", email: "", password: "",
         confirmPassword: ""
       })
+      navigate("/")
       }
 
     //   axios.post("http://localhost:4000/api/register", {
@@ -59,13 +65,13 @@ function Register() {
   
 
   const handleChange = (e) => {
+    console.log("change", disabledBtn);
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
-    if (!registerData.name || !registerData.surname || !registerData.email || !registerData.email || !registerData.password || !registerData.confirmPassword) {
+    if (registerData.name==="" || registerData.surname==="" || registerData.email==="" || registerData.email==="" || registerData.password==="" || registerData.confirmPassword==="") {
       setDisabledBtn(true)
     }
     else {
       setDisabledBtn(false)
-      console.log(disabledBtn)
     }
     }
 
@@ -97,11 +103,11 @@ function Register() {
       <Form.Check type="checkbox" label="agree to terms and services" />
     </Form.Group>
     <Button variant="primary" type="submit" disabled={disabledBtn}>
-        {isLoading ? <div className="spinner-grow" role="status">
+        {isLoading ? <div className="spinner-border spinner-grow-sm" role="status">
         </div> : "Register"}
       </Button>
       <p style={{ color: "red" }}>{passError}</p>
-  </Form>
+    </Form>
   )
 }
 
