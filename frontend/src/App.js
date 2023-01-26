@@ -8,6 +8,7 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BookNow from './components/BookNow';
+import { StoreProvider } from 'easy-peasy';
 
 export class App extends PureComponent {
   render() {
