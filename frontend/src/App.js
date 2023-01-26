@@ -9,10 +9,12 @@ import Contact from './components/Contact';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BookNow from './components/BookNow';
 import { StoreProvider } from 'easy-peasy';
+import { store } from './store/store';
 
 export class App extends PureComponent {
   render() {
     return (
+      <StoreProvider store={store}>
       <BrowserRouter>
       <div className='app'>
             
@@ -26,6 +28,7 @@ export class App extends PureComponent {
         </Routes>
       </div>
     </BrowserRouter>
+      </StoreProvider>
     )
   }
 }

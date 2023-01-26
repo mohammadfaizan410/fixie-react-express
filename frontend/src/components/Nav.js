@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import "../styles/nav.css";
+import { useStoreState } from 'easy-peasy';
 
 function Nav() {
+  const userStore = useStoreState((state) => state.userStore);
   return (
     <div className='nav-container'>
       <div className='nav-left'>
@@ -22,13 +24,18 @@ function Nav() {
         <div className='nav-item'>Contact</div>
         </Link>
       </div>
+      
       <div className='nav-right'>
-        <Link to="/login" style={{ textDecoration : "none" }}>
+        {!userStore.name ? 
+          <>
+          <Link to="/login" style={{ textDecoration : "none" }}>
         <div className='nav-login'>Login</div>
         </Link>
         <Link to="/register" style={{ textDecoration : "none" }}>
         <div className='nav-register'>Register</div>
         </Link>
+          </>
+         : <div>{userStore.name}</div>}
       </div>
     </div>
   )

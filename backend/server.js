@@ -51,19 +51,17 @@ app.post("/api/login", async (req, res) => {
     const password = req.body.data.password;
     
     User.findOne({ email: email }).then(result => {
-
         if (result) {
             bcrypt.compare(password, result.password, (err, compResult) => {
             if (compResult){
                 sess=req.session;
                 sess.user = {
-                    _id: result._id,
                     name: result.name,
                     surname: result.surname,
                     email: result.email,
                     worker: result.worker
                 };
-                res.send(sess);
+                res.send(sess.user);
             } else {
                 res.send(false);
             }

@@ -1,8 +1,11 @@
 import React from 'react';
 import "../styles/home.css";
 import Button from './Button';
+import { useStoreState } from 'easy-peasy';
 
 function Home() {
+  const userStore = useStoreState((state) => state.userStore);
+  console.log(userStore);
   return (
     <div className='home-container'>
           <div className='description'>
