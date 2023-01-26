@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import "../styles/register.css"
+import "../styles/register.css";
 import axios from 'axios';
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -51,7 +51,7 @@ function Register() {
         name: "", surname: "", email: "", password: "",
         confirmPassword: ""
       })
-      navigate("/")
+      navigate("/login")
       }
 
     //   axios.post("http://localhost:4000/api/register", {
