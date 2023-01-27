@@ -10,8 +10,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BookNow from './components/BookNow';
 import { StoreProvider } from 'easy-peasy';
 import { store } from './store/store';
+import $ from './assets/jQuery';
 
 export class App extends PureComponent {
+
+  const [session, setSession] = useState()
+
   render() {
     return (
       <StoreProvider store={store}>
