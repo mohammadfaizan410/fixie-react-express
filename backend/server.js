@@ -4,12 +4,44 @@ const sessions = require("express-session");
 const app = express();
 const PORT = 4000;
 const cors = require("cors");
+const nodemailer = require('nodemailer'),
+    transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'fixieappcontact',
+            pass: 'qqpsebticqdbfxik'
+        }
+    }),
+    EmailTemplate = require('email-templates').EmailTemplate,
+    path = require('path'),
+    Promise = require('bluebird');
 const User = require("./schemas/User");
 const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 var sess;
+
+function sendEmail(obj){
+    console.log('in here send email function');
+
+    return transporter.sendMail(obj);
+}
+
+function loadTemplate(templateName, context){
+    console.log('in the load template function')
+
+    let template = new EmailTemplate(path.join(__dirname, 'templates', templateName));
+    return new Promise((resolve, reject) => {
+        template.render(context, (err, result) => {
+            if (err) reject(err);
+            else resolve({
+                email: result,
+                context,
+            });
+        })
+    });
+}
 
 mongoose.set('strictQuery', false);
 
@@ -76,25 +108,47 @@ app.post("/api/register", (req, res) => {
 
     User.findOne({ email: req.body.data.email }).then(result => {
         if (!result) {       
+
             bcrypt.hash(req.body.data.password, saltRounds, function (err, hash) { 
                 if (!err) {  
+                    var id = mongoose.Types.ObjectId();
+
                     const newUser = new User({
+                        _id: id,
                         name: req.body.data.name,
                         surname: req.body.data.surname,
                         email: req.body.data.email,
                         password: hash
                     });
                     newUser.save();
+
+                    loadTemplate('welcome', { name: req.body.data.name, email: req.body.data.email, id }).then((mailInfo) => {
+                        console.log('In the register load template function');
+
+                        sendEmail({
+                            to: mailInfo.context.email,
+                            from: 'Fixie App',
+                            subject: mailInfo.email.subject,
+                            html: mailInfo.email.html,
+                            text: mailInfo.email.text
+                        })
+                    })
+
                     res.send(req.body.data)
                 }
             }         
             )
+
         }
         else {
             res.send("exists");
         }
         // }
     })
+})
+
+app.post("/api/verify", async (req, res) => {
+    const user = await User.findOneAndUpdate({_id: req.body.id}, {verified: true});
 })
 
 app.listen(PORT, console.log(`Server running at port ${PORT}`));

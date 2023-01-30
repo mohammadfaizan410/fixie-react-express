@@ -75,6 +75,7 @@ function Register() {
     }
     }
 
+    
   return (
     <Form onSubmit={handleSubmit} className="register-container" >
         <h3>Register!</h3>

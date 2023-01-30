@@ -10,12 +10,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BookNow from './components/BookNow';
 import { StoreProvider } from 'easy-peasy';
 import { store } from './store/store';
-import $ from './assets/jQuery';
+import Verify from './components/Verify';
 
 export class App extends PureComponent {
-
-  const [session, setSession] = useState()
-
   render() {
     return (
       <StoreProvider store={store}>
@@ -29,6 +26,7 @@ export class App extends PureComponent {
             <Route path='services' element={<div><Nav /><Services /></div>}/>
             <Route path='contact' element={<div><Nav /><Contact /></div>}/>
             <Route path='book-now' element={<div><Nav /><BookNow /></div>}/>
+            <Route path='verify/:id' element={<Verify />}/>
         </Routes>
       </div>
     </BrowserRouter>
